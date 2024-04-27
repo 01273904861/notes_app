@@ -4,25 +4,23 @@ import 'package:flutter/widgets.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/notes_listview.dart';
 
-class HomeView extends StatelessWidget {
-  const HomeView({super.key});
+class NotesViewBody extends StatelessWidget {
+  const NotesViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 25, right: 24, left: 24),
+      padding: const EdgeInsets.only(top: 24, right: 24, left: 24),
       child: Column(
         children: [
           const CustomAppBar(),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 15),
           Expanded(
-            child: NotesListView(),
+            child: const NotesListView(),
           ),
+          SizedBox(height: 15),
         ],
       ),
     );
   }
 }
-

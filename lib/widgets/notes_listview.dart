@@ -14,6 +14,7 @@ class NotesListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        padding: EdgeInsets.zero,
         itemCount: 20,
         itemBuilder: (context, i) {
           return CustomNoteItem(
