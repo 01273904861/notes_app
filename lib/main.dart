@@ -19,7 +19,14 @@ class NotesApp extends StatelessWidget {
         ),
         home: Scaffold(
           body: HomeView(),
-          floatingActionButton: AddIcon(),
+          floatingActionButton: FloatingActionButton(
+            backgroundColor: Color(0xff61FFD8),
+            onPressed: () {},
+            child: Icon(
+              Icons.add,
+              color: Colors.black,
+            ),
+          ),
         ));
   }
 }
