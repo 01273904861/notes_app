@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:notes_app/constats.dart';
 import 'package:notes_app/views/edit_view.dart';
-import 'package:notes_app/views/notes_body.dart';
+import 'package:notes_app/widgets/notes_body.dart';
 import 'package:notes_app/widgets/add_notes_modalbottomsheet.dart';
 
 class NotesView extends StatelessWidget {
@@ -13,7 +13,7 @@ class NotesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
-        EditView.id :(context) => EditView(),
+        EditNotesView.id: (context) => EditNotesView(),
       },
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -21,7 +21,6 @@ class NotesView extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       home: Scaffold(
-
         floatingActionButton: FloatingActionButton(
           backgroundColor: kPrimaryColor,
           onPressed: () {
@@ -43,7 +42,6 @@ class NotesView extends StatelessWidget {
             color: Colors.black,
           ),
         ),
-        
         body: NotesViewBody(),
       ),
     );
