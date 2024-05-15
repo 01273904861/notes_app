@@ -6,6 +6,10 @@ part 'note_item_model.g.dart';
 //4
 // write "flutter packages pub run build_runner build" in terminal
 
+//5 
+//in main ==> Hive.registerAdapter(NoteItemModelAdapter());
+
+
 //1
 @HiveType(typeId: 0)
 class NoteItemModel extends HiveObject {
