@@ -4,7 +4,7 @@ import 'package:hive/hive.dart';
 part 'note_item_model.g.dart';
 
 //4
-// *******************flutter packages pub run build_runner build
+// write "flutter packages pub run build_runner build" in terminal
 
 //1
 @HiveType(typeId: 0)

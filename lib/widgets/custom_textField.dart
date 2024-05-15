@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:notes_app/constats.dart';
 
 class CustomTextfiled extends StatelessWidget {
@@ -6,18 +7,28 @@ class CustomTextfiled extends StatelessWidget {
     super.key,
     this.maxLines,
     required this.hinttext,
+    this.onSaved
   });
   final int? maxLines;
   final String hinttext;
+  final void Function(String?)? onSaved;
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      
-      style: TextStyle(color: kPrimaryColor),
+    return TextFormField(
+      onSaved: onSaved,
+      validator: (value){
+        if(value?.isEmpty ?? true){
+          return 'this field is required' ; 
+        }
+        else {
+          return null;
+        }
+      },
+      style:const TextStyle(color: kPrimaryColor),
       maxLines: maxLines ?? 1,
       decoration: InputDecoration(
         hintText: hinttext,
-        hintStyle: TextStyle(color: kPrimaryColor),
+        hintStyle:const TextStyle(color: kPrimaryColor),
         border: borderStyle(),
         focusedBorder: borderStyle(color: kPrimaryColor),
         enabledBorder: borderStyle(),

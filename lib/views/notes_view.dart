@@ -21,25 +21,30 @@ class NotesView extends StatelessWidget {
         brightness: Brightness.dark,
       ),
       home: Scaffold(
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: kPrimaryColor,
-          onPressed: () {
-            showModalBottomSheet(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(16),
-                  topRight: Radius.circular(16),
+        floatingActionButton: SingleChildScrollView(
+          child: FloatingActionButton(
+            backgroundColor: kPrimaryColor,
+            onPressed: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                scrollControlDisabledMaxHeightRatio: 1,
+                isDismissible: true,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
+                  ),
                 ),
-              ),
-              context: context,
-              builder: (BuildContext context) {
-                return const AddNoteModalBottomSheet();
-              },
-            );
-          },
-          child: Icon(
-            Icons.add,
-            color: Colors.black,
+                context: context,
+                builder: (BuildContext context) {
+                  return const AddNoteModalBottomSheet();
+                },
+              );
+            },
+            child: Icon(
+              Icons.add,
+              color: Colors.black,
+            ),
           ),
         ),
         body: NotesViewBody(),

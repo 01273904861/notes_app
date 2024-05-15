@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/constats.dart';
 import 'package:notes_app/widgets/button.dart';
 import 'package:notes_app/widgets/custom_textField.dart';
+import 'package:notes_app/widgets/notes_form.dart';
 
 class AddNoteModalBottomSheet extends StatelessWidget {
   const AddNoteModalBottomSheet({super.key});
@@ -12,34 +12,8 @@ class AddNoteModalBottomSheet extends StatelessWidget {
       color: const Color.fromARGB(217, 0, 0, 0),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 24,
-              ),
-              CustomTextfiled(
-                hinttext: 'note',
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              CustomTextfiled(
-                hinttext: 'content',
-                maxLines: 4,
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Button(),
-              SizedBox(
-                height: 15,
-              ),
-            ],
-          ),
-        ),
+        child: NotesForm(),
       ),
     );
   }
 }
-
