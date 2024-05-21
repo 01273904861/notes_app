@@ -4,8 +4,10 @@ import 'package:notes_app/constats.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
-    this.onTap
+    this.onTap,
+    this.isLoading = false,
   });
+  final bool isLoading;
   final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
@@ -17,10 +19,18 @@ class CustomButton extends StatelessWidget {
         decoration: BoxDecoration(
             color: kPrimaryColor, borderRadius: BorderRadius.circular(16)),
         child: Center(
-          child: Text(
-            'Add',
-            style: TextStyle(fontSize: 20),
-          ),
+          child: isLoading
+              ? SizedBox(
+                  height: 30,
+                  width: 30,
+                  child: CircularProgressIndicator(
+                    color: Colors.black,
+                  ),
+                )
+              : Text(
+                  'Add',
+                  style: TextStyle(fontSize: 20),
+                ),
         ),
       ),
     );

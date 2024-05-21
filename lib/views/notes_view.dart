@@ -13,48 +13,41 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => AddNoteCubit()),
-      ],
-      child: MaterialApp(
-        routes: {
-          EditNotesView.id: (context) => EditNotesView(),
-        },
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          fontFamily: 'poppins',
-          brightness: Brightness.dark,
-        ),
-        home: Scaffold(
-          floatingActionButton: SingleChildScrollView(
-            child: FloatingActionButton(
-              backgroundColor: kPrimaryColor,
-              onPressed: () {
-                showModalBottomSheet(
-                  isScrollControlled: true,
-                  scrollControlDisabledMaxHeightRatio: 1,
-                  isDismissible: true,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(16),
-                      topRight: Radius.circular(16),
-                    ),
+    return MaterialApp(
+      routes: {
+        EditNotesView.id: (context) => EditNotesView(),
+      },
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'poppins',
+        brightness: Brightness.dark,
+      ),
+      home: Scaffold(
+        floatingActionButton: SingleChildScrollView(
+          child: FloatingActionButton(
+            backgroundColor: kPrimaryColor,
+            onPressed: () {
+              showModalBottomSheet(
+                isScrollControlled: true,
+                shape:const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(16),
+                    topRight: Radius.circular(16),
                   ),
-                  context: context,
-                  builder: (BuildContext context) {
-                    return const AddNoteModalBottomSheet();
-                  },
-                );
-              },
-              child: Icon(
-                Icons.add,
-                color: Colors.black,
-              ),
+                ),
+                context: context,
+                builder: (BuildContext context) {
+                  return const AddNoteModalBottomSheet();
+                },
+              );
+            },
+            child: Icon(
+              Icons.add,
+              color: Colors.black,
             ),
           ),
-          body: NotesViewBody(),
         ),
+        body: NotesViewBody(),
       ),
     );
   }

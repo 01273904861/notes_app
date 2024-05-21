@@ -7,11 +7,11 @@ import 'package:notes_app/views/notes_view.dart';
 void main() async{
 
  await Hive.initFlutter();
- await Hive.openBox(kNotesBox);
+
 
 //step 5 after create  NoteItemModelAdapter
  Hive.registerAdapter(NoteItemModelAdapter());
-
+ await Hive.openBox<NoteItemModel>(kNotesBox);
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,

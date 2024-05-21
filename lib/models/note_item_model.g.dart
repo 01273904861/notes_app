@@ -19,7 +19,7 @@ class NoteItemModelAdapter extends TypeAdapter<NoteItemModel> {
     return NoteItemModel(
       date: fields[2] as String,
       color: fields[3] as int,
-      subtite: fields[1] as String,
+      subtitle: fields[1] as String,
       title: fields[0] as String,
     );
   }
@@ -31,7 +31,7 @@ class NoteItemModelAdapter extends TypeAdapter<NoteItemModel> {
       ..writeByte(0)
       ..write(obj.title)
       ..writeByte(1)
-      ..write(obj.subtite)
+      ..write(obj.subtitle)
       ..writeByte(2)
       ..write(obj.date)
       ..writeByte(3)
@@ -42,7 +42,7 @@ class NoteItemModelAdapter extends TypeAdapter<NoteItemModel> {
   int get hashCode => typeId.hashCode;
 
   @override
-  bool operator == (Object other) =>
+  bool operator ==(Object other) =>
       identical(this, other) ||
       other is NoteItemModelAdapter &&
           runtimeType == other.runtimeType &&

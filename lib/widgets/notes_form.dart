@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:notes_app/widgets/button.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/cubit/add_note_cubit.dart';
+import 'package:notes_app/cubits/cubit/add_notes_state.dart';
+import 'package:notes_app/models/note_item_model.dart';
+import 'package:notes_app/widgets/custom_button.dart';
 import 'package:notes_app/widgets/custom_textField.dart';
 
 class NotesForm extends StatefulWidget {
@@ -47,26 +51,38 @@ class _NotesFormState extends State<NotesForm> {
           const SizedBox(
             height: 50,
           ),
-          CustomButton(
-            onTap: () {
-              if (formKey.currentState!.validate()) {
-                formKey.currentState!.save();
-                /*
-                 the form is valid, this line saves  the form's current state. 
-                The save() method typically triggers the onSaved 
-                callback for each form field, allowing you to save 
-                the field's value to your data model or perform other actions.
-                */ 
-              } else {
-                autovalidateMode = AutovalidateMode.always;
-                // the form fields will continuously validate as the user enters data,
-                // and any validation errors will be displayed immediately.
-                setState(() {});
-              }
+          BlocBuilder<AddNoteCubit, AddNoteState>(
+            builder: (context, state) {
+              return CustomButton(
+                isLoading: state is AddNoteLoading,
+                onTap: () {
+                  if (formKey.currentState!.validate()) {
+                    formKey.currentState!.save();
+
+                    BlocProvider.of<AddNoteCubit>(context).addNote(
+                      NoteItemModel(
+                        date: DateTime.now().toString(),
+                        color: Colors.blue.value,
+                        subtitle: subtitle!,
+                        title: title!,
+                      ),
+                    );
+
+                    /*
+                           the form is valid, this line saves  the form's current state. 
+                          The save() method typically triggers the onSaved 
+                          callback for each form field, allowing you to save 
+                          the field's value to your data model or perform other actions.
+                          */
+                  } else {
+                    autovalidateMode = AutovalidateMode.always;
+                    // the form fields will continuously validate as the user enters data,
+                    // and any validation errors will be displayed immediately.
+                    setState(() {});
+                  }
+                },
+              );
             },
-          ),
-          const SizedBox(
-            height: 30,
           ),
         ],
       ),

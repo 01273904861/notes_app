@@ -1,0 +1,101 @@
+[33mcommit fc7c1dd69e4aa9f0056114f6118f7084fa1384cc[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Wed May 15 15:31:56 2024 +0300
+
+    provide add note cubit
+
+[33mcommit bf719bf179c6c075c09d59381e64b0805909c7c7[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Wed May 15 15:14:32 2024 +0300
+
+    add notes method to note cubit
+
+[33mcommit ee5d2dcee44ab47f249422ed990b1b71e4828e60[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Wed May 15 14:50:12 2024 +0300
+
+    register adpter
+
+[33mcommit 62f9a201f28048b94b35019b9a4e13704acf8b7f[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Wed May 15 14:31:07 2024 +0300
+
+    add notes state
+
+[33mcommit 0d4592db7cca84fd3b70a4d175059524880ff284[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Sun May 5 00:41:20 2024 +0300
+
+    init hive and add hive box
+
+[33mcommit 13fa06c26518a081806520f1d59caa9eed207fba[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Sun May 5 00:33:21 2024 +0300
+
+    create and generate hive model
+
+[33mcommit df1791d5abee17ca3076d95640d80f019e8356e8[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Sat May 4 01:11:29 2024 +0300
+
+    add hive
+
+[33mcommit 928437321236f58eb621b87ec569333a48a0dad9[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Sat May 4 00:42:54 2024 +0300
+
+    create item model
+
+[33mcommit 95803ca43655b14d4686cfc71d53c48574af7cbe[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Sat May 4 00:39:45 2024 +0300
+
+    edit view done
+
+[33mcommit 03f21e1672a04bcd4364a549611922c6befa8169[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Sat May 4 00:20:24 2024 +0300
+
+    add custom appbar to edit not view
+
+[33mcommit 3b0b4118dace48be84d69a55d20b140450582e63[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Fri May 3 23:49:24 2024 +0300
+
+    create edit note view
+
+[33mcommit 5d8ab78e1c4af0cd1ed5d4b6cb7903947323b4aa[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Sun Apr 28 03:08:25 2024 +0300
+
+    add filelds to botom sheet
+
+[33mcommit 372c083b46adaafa43fec7c36ba0579bf7c2ad1b[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Sun Apr 28 01:27:14 2024 +0300
+
+    show modal    bottom sheet
+
+[33mcommit e56cb05c1315ddf65bca9966cca14326ab89bafa[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Sat Apr 27 03:00:50 2024 +0300
+
+    add colors
+
+[33mcommit 508427efaf1b3905f2b64147667d247d1fa6ccf6[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Sat Apr 27 02:37:34 2024 +0300
+
+    items listview
+
+[33mcommit c9750bbcdb1980186cbbd6b1942a1d2ef6db9d13[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Fri Apr 26 18:39:39 2024 +0300
+
+    create notes app
+
+[33mcommit 648aaf03a813e62a4224c081b1bdc43da6aaf30c[m
+Author: abdullah mohamed <abdullahmohamed1122002.com>
+Date:   Fri Apr 26 18:33:45 2024 +0300
+
+    first commit
