@@ -18,24 +18,24 @@ class AddNoteModalBottomSheet extends StatelessWidget {
         child: BlocConsumer<AddNoteCubit, AddNoteState>(
           listener: (context, state) {
             if (state is AddNoteSucess) {
-              HelperFunctions()
-                  .scaffoldMessangerMessage(context, 'add note sucessed');
-
+              // HelperFunctions()
+              //     .scaffoldMessangerMessage(context, 'add note sucessed');
+              print('sucess');
               Future.delayed(
                 const Duration(seconds: 1),
                 () => Navigator.of(context).pop(),
               );
             }
             if (state is AddNoteFailure) {
-              HelperFunctions()
-                  .scaffoldMessangerMessage(context, 'failed as ${state.err}');
+              // HelperFunctions()
+              //     .scaffoldMessangerMessage(context, 'failed as ${state.err}');
+              print('failed as ${state.err}');
             }
           },
           builder: (context, state) {
             return AbsorbPointer(
               absorbing: state is AddNoteLoading,
               child: SizedBox(
-                height: 400,
                 child: Padding(
                   padding: EdgeInsets.only(
                     left: 16,
