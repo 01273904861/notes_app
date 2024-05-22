@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:notes_app/cubits/cubit/add_note_cubit.dart';
-import 'package:notes_app/cubits/cubit/add_notes_state.dart';
+import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:notes_app/cubits/add_note_cubit/add_notes_state.dart';
 import 'package:notes_app/helper_functions.dart';
 import 'package:notes_app/widgets/notes_form.dart';
 
