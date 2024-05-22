@@ -6,14 +6,14 @@ import 'package:notes_app/models/note_item_model.dart';
 import 'package:notes_app/views/notes_view.dart';
 import 'package:notes_app/views/simple_bloc_observer.dart';
 
-void main() async{
- Bloc.observer = SimpleBlokObserver();
- await Hive.initFlutter();
-
+void main() async {
+  Bloc.observer = SimpleBlokObserver();
+  await Hive.initFlutter();
 
 //step 5 after create  NoteItemModelAdapter
- Hive.registerAdapter(NoteItemModelAdapter());
- await Hive.openBox<NoteItemModel>(kNotesBox);
+  Hive.registerAdapter(NoteItemModelAdapter());
+  await Hive.openBox<NoteItemModel>(kNotesBox);
+  print('////////////////// ');
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
