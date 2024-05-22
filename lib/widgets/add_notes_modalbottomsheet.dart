@@ -19,10 +19,8 @@ class AddNoteModalBottomSheet extends StatelessWidget {
         child: BlocConsumer<AddNoteCubit, AddNoteState>(
           listener: (context, state) {
             if (state is AddNoteSucess) {
-              // HelperFunctions()
-              //     .scaffoldMessangerMessage(context, 'add note sucessed');
               print('sucess');
-
+              BlocProvider.of<NotesCubit>(context).fetchNotes();
               Future.delayed(
                 const Duration(seconds: 1),
                 () => Navigator.of(context).pop(),

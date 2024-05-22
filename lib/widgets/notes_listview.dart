@@ -16,12 +16,13 @@ class NotesListView extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-     
     return BlocBuilder<NotesCubit, NotesState>(
       builder: (context, state) {
-        List<NoteItemModel> notes =
-          BlocProvider.of<NotesCubit>(context).notes ?? [];
-          print('lenght ${notes.length}');
+        if (state is NotesFaiuler) {
+          print(state.err);
+        }
+        List<NoteItemModel> notes = BlocProvider.of<NotesCubit>(context).notes ??[];
+        print('lenght ${notes.length}');
         return ListView.builder(
             padding: EdgeInsets.zero,
             itemCount: notes.length,

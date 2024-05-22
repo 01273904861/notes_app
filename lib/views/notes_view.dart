@@ -13,15 +13,7 @@ class NotesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'poppins',
-        brightness: Brightness.dark,
-      ),
-      home: BlocProvider(
-        create: (context) => NotesCubit(),
-        child: Scaffold(
+    return  Scaffold(
           floatingActionButton: SingleChildScrollView(
             child: FloatingActionButton(
               backgroundColor: kPrimaryColor,
@@ -47,8 +39,7 @@ class NotesView extends StatelessWidget {
             ),
           ),
           body: const NotesViewBody(),
-        ),
-      ),
+       
     );
   }
 }

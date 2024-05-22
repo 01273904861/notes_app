@@ -5,19 +5,14 @@ import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/notes_listview.dart';
 
-class NotesViewBody extends StatefulWidget {
+class NotesViewBody extends StatelessWidget {
   const NotesViewBody({super.key});
 
-  @override
-  State<NotesViewBody> createState() => _NotesViewBodyState();
-}
-
-class _NotesViewBodyState extends State<NotesViewBody> {
-  @override
-  void initState() {
-    BlocProvider.of<NotesCubit>(context).fetchNotes();
-    super.initState(); 
-  }
+  // @override
+  // void initState() {
+  //   BlocProvider.of<NotesCubit>(context).fetchNotes();
+  //   super.initState(); 
+  // }
 
   @override
   Widget build(BuildContext context) {
