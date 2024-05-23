@@ -12,9 +12,8 @@ void main() async {
   await Hive.initFlutter();
 
 //step 5 after create  NoteItemModelAdapter
-  Hive.registerAdapter(NoteItemModelAdapter());
-  await Hive.openBox<NoteItemModel>(kNotesBox);
-
+ Hive.registerAdapter(NoteItemModelAdapter());
+ await Hive.openBox<NoteItemModel>(kNotesBox);
   runApp(
     MaterialApp(
       debugShowCheckedModeBanner: false,
