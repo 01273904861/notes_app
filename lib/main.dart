@@ -15,7 +15,7 @@ void main() async {
  Hive.registerAdapter(NoteItemModelAdapter());
  await Hive.openBox<NoteItemModel>(kNotesBox);
   runApp(
-    MaterialApp(
+   const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: NotesApp(),
     ),
@@ -35,7 +35,7 @@ class NotesApp extends StatelessWidget {
           fontFamily: 'poppins',
           brightness: Brightness.dark,
         ),
-        home:const NotesView()),
+        home: const NotesView()),
     );
   }
 }

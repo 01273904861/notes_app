@@ -8,12 +8,7 @@ class NotesListView extends StatelessWidget {
   const NotesListView({
     super.key,
   });
-  final List<Color> colors = const [
-    Color(0xffE7ED99),
-    Color(0xff61FFD8),
-    Color(0xff7FDFEC),
-    Color.fromARGB(255, 172, 230, 174)
-  ];
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NotesCubit, NotesState>(
@@ -21,17 +16,19 @@ class NotesListView extends StatelessWidget {
         if (state is NotesFaiuler) {
           print(state.err);
         }
-        List<NoteItemModel> notes = BlocProvider.of<NotesCubit>(context).notes ??[];
+        List<NoteItemModel> notes = BlocProvider.of<NotesCubit>(context).notes ?? [];
         print('lenght ${notes.length}');
         return ListView.builder(
             padding: EdgeInsets.zero,
             itemCount: notes.length,
             itemBuilder: (context, i) {
               return CustomNoteItem(
-                color: colors[i % 4],
+              
                 note: notes[i],
+                index: i,
               );
-            });
+            },
+            );
       },
     );
   }

@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
@@ -5,6 +7,7 @@ import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_notes_state.dart';
 import 'package:notes_app/models/note_item_model.dart';
 import 'package:notes_app/widgets/custom_button.dart';
+import 'package:notes_app/widgets/custom_color_item.dart';
 import 'package:notes_app/widgets/custom_textField.dart';
 
 class NotesForm extends StatefulWidget {
@@ -22,6 +25,21 @@ class _NotesFormState extends State<NotesForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   String? title, subtitle;
+  int? color;
+  final List<Color> colors = const [
+    Colors.red,
+    Colors.blue,
+    Colors.green,
+    Colors.yellow,
+    Colors.grey,
+    Color(0xffE7ED99),
+    Color(0xff61FFD8),
+    Color(0xff7FDFEC),
+    Color.fromARGB(255, 172, 230, 174),
+    Color.fromARGB(255, 120, 159, 122),
+    Color.fromARGB(255, 52, 70, 53),
+    Color.fromARGB(255, 152, 166, 153),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +67,23 @@ class _NotesFormState extends State<NotesForm> {
             hinttext: 'content',
             maxLines: 4,
           ),
+          SizedBox(
+            height: 38 * 2.5,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: colors.length,
+              itemBuilder: (context, i) {
+                return CustomColorItem(
+                  color: colors[i],
+                  onTap: () {
+                    color = colors[i].value;
+                  },
+                );
+              },
+            ),
+          ),
           const SizedBox(
-            height: 30,
+            height: 10,
           ),
           BlocBuilder<AddNoteCubit, AddNoteState>(
             builder: (context, state) {
@@ -60,11 +93,12 @@ class _NotesFormState extends State<NotesForm> {
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     String formatedDate =
-                        DateFormat('dd/m/yyyy').format(DateTime.now());
+                        DateFormat('EEEE, MMMM d, yyyy h:mm a')
+                            .format(DateTime.now());
                     BlocProvider.of<AddNoteCubit>(context).addNote(
                       NoteItemModel(
                         date: formatedDate,
-                        color: Colors.blue.value,
+                        color: color!,
                         subtitle: subtitle!,
                         title: title!,
                       ),
