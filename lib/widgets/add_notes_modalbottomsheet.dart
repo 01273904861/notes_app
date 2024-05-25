@@ -20,10 +20,7 @@ class AddNoteModalBottomSheet extends StatelessWidget {
             if (state is AddNoteSucess) {
               print('sucess');
               BlocProvider.of<NotesCubit>(context).fetchNotes();
-              Future.delayed(
-                const Duration(seconds: 1),
-                () => Navigator.of(context).pop(),
-              );
+              Navigator.of(context).pop();
             }
             if (state is AddNoteFailure) {
               // HelperFunctions()
