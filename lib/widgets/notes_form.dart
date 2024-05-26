@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note_item_model.dart';
 import 'package:notes_app/widgets/custom_button.dart';
@@ -20,7 +21,7 @@ class _NotesFormState extends State<NotesForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   String? title, subtitle;
-
+  String formatedDate = DateFormat('E, MMM d, yyyy').format(DateTime.now());
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -57,7 +58,7 @@ class _NotesFormState extends State<NotesForm> {
 
                 BlocProvider.of<AddNoteCubit>(context).addNote(
                   NoteItemModel(
-                    date: DateTime.now().toString(),
+                    date: formatedDate ,
                     color: Colors.blue.value,
                     subtitle: subtitle!,
                     title: title!,
