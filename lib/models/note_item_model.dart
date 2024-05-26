@@ -14,13 +14,13 @@ part 'note_item_model.g.dart';
 class NoteItemModel extends HiveObject {
   //2
   @HiveField(0)
-   String title;
+  final String title;
   @HiveField(1)
-   String subtitle;
+  final String subtitle;
   @HiveField(2)
   final String date;
   @HiveField(3)
-   int color;
+  final int color;
 
   NoteItemModel({
     required this.date,

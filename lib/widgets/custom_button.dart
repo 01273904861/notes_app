@@ -5,7 +5,6 @@ class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
     this.onTap,
-
   });
 
   final void Function()? onTap;
@@ -19,9 +18,10 @@ class CustomButton extends StatelessWidget {
         decoration: BoxDecoration(
             color: kPrimaryColor, borderRadius: BorderRadius.circular(16)),
         child:const Center(
-          child: Text(
+          child:    Text(
+            
                   'Add',
-                  style: TextStyle(fontSize: 20 ,color: Colors.black) ,
+                  style: TextStyle(fontSize: 20 , color: Colors.black),
                 ),
         ),
       ),

@@ -1,13 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
-import 'package:notes_app/constats.dart';
 import 'package:notes_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:notes_app/models/note_item_model.dart';
 import 'package:notes_app/widgets/custom_button.dart';
-import 'package:notes_app/widgets/custom_color_item.dart';
 import 'package:notes_app/widgets/custom_textField.dart';
 
 class NotesForm extends StatefulWidget {
@@ -25,8 +20,6 @@ class _NotesFormState extends State<NotesForm> {
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   String? title, subtitle;
-  int? color;
-  int currentColorIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -54,39 +47,18 @@ class _NotesFormState extends State<NotesForm> {
             hinttext: 'content',
             maxLines: 4,
           ),
-          SizedBox(
-            height: 38 * 2.5,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: colors.length,
-              itemBuilder: (context, i) {
-                return CustomColorItem(
-                  color: colors[i],
-                  isTaped: currentColorIndex == i,
-                  onTap: () {
-                    color = colors[i].value;
-                    currentColorIndex = i;
-                    setState(() {});
-                  },
-                );
-              },
-            ),
-          ),
           const SizedBox(
-            height: 10,
+            height: 30,
           ),
           CustomButton(
             onTap: () {
               if (formKey.currentState!.validate()) {
                 formKey.currentState!.save();
-                String formatedDate = DateFormat('EEEE, MMMM d, yyyy h:mm a')
-                    .format(DateTime.now());
-                //trigger cubit
-                //call function
+
                 BlocProvider.of<AddNoteCubit>(context).addNote(
                   NoteItemModel(
-                    date: formatedDate,
-                    color: color ?? Colors.blue.value,
+                    date: DateTime.now().toString(),
+                    color: Colors.blue.value,
                     subtitle: subtitle!,
                     title: title!,
                   ),
@@ -105,7 +77,7 @@ class _NotesFormState extends State<NotesForm> {
                 setState(() {});
               }
             },
-          ),
+          )
         ],
       ),
     );

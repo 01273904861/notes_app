@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
-import 'package:notes_app/helper_functions.dart';
 import 'package:notes_app/models/note_item_model.dart';
 import 'package:notes_app/views/edit_view.dart';
-import 'package:notes_app/views/notes_view.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({super.key, required this.note, required this.index});
-
+  const CustomNoteItem({super.key, required this.color , required this.note});
+  final Color color;
   final NoteItemModel note;
-  final int index;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -19,10 +13,7 @@ class CustomNoteItem extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {
-              return EditNotesView(
-                index: index,
-                note: note,
-              );
+              return EditNotesView();
             },
           ),
         );
@@ -32,7 +23,7 @@ class CustomNoteItem extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16),
-          color: Color(note.color),
+          color: color,
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
@@ -41,7 +32,7 @@ class CustomNoteItem extends StatelessWidget {
               contentPadding: EdgeInsets.zero,
               title: Text(
                 note.title,
-                style: const TextStyle(
+                style:const TextStyle(
                   color: Colors.black,
                   fontSize: 24,
                 ),
@@ -57,11 +48,7 @@ class CustomNoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {
-                  note.delete();
-                  Navigator.of(context).pop();
-                  BlocProvider.of<NotesCubit>(context).fetchNotes();
-                },
+                onPressed: () {},
                 icon: const Icon(
                   Icons.delete,
                   size: 30,
@@ -73,7 +60,7 @@ class CustomNoteItem extends StatelessWidget {
               height: 20,
             ),
             Text(
-              note.date,
+             note.date,
               style: TextStyle(
                 color: Colors.black.withOpacity(.5),
                 fontSize: 18,
