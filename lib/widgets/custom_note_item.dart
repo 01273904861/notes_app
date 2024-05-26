@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/helper_functions.dart';
 import 'package:notes_app/models/note_item_model.dart';
 import 'package:notes_app/views/edit_view.dart';
 
 class CustomNoteItem extends StatelessWidget {
-  const CustomNoteItem({super.key, required this.color , required this.note});
+  const CustomNoteItem(
+      {super.key, required this.color, required this.note, this.onPressed});
   final Color color;
   final NoteItemModel note;
+  final void Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -13,7 +18,9 @@ class CustomNoteItem extends StatelessWidget {
         Navigator.of(context).push(
           MaterialPageRoute(
             builder: (context) {
-              return EditNotesView();
+              return EditNotesView(
+                note: note,
+              );
             },
           ),
         );
@@ -32,7 +39,7 @@ class CustomNoteItem extends StatelessWidget {
               contentPadding: EdgeInsets.zero,
               title: Text(
                 note.title,
-                style:const TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontSize: 24,
                 ),
@@ -48,7 +55,12 @@ class CustomNoteItem extends StatelessWidget {
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                
+                HelperFunctions().deleteNoteDialog(context, note);
+                  // note.delete();
+                  // BlocProvider.of<NotesCubit>(context).fetchNotes();
+                },
                 icon: const Icon(
                   Icons.delete,
                   size: 30,
@@ -60,7 +72,7 @@ class CustomNoteItem extends StatelessWidget {
               height: 20,
             ),
             Text(
-             note.date,
+              note.date,
               style: TextStyle(
                 color: Colors.black.withOpacity(.5),
                 fontSize: 18,

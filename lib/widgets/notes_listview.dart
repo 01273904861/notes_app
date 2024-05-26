@@ -25,6 +25,7 @@ class NotesListView extends StatelessWidget {
             itemCount: notes.length,
             itemBuilder: (context, i) {
               return CustomNoteItem(
+             
                 color: colors[i % 4],
                 note: notes[i],
               );
