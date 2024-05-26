@@ -56,8 +56,8 @@ class CustomNoteItem extends StatelessWidget {
               ),
               trailing: IconButton(
                 onPressed: () {
+                  HelperFunctions().deleteNoteDialog(context, note);
                 
-                HelperFunctions().deleteNoteDialog(context, note);
                   // note.delete();
                   // BlocProvider.of<NotesCubit>(context).fetchNotes();
                 },

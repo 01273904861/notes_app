@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/helper_functions.dart';
 import 'package:notes_app/models/note_item_model.dart';
 import 'package:notes_app/widgets/custom_appbar.dart';
 import 'package:notes_app/widgets/custom_textField.dart';
@@ -34,6 +35,8 @@ class _EditNotesViewBodyState extends State<EditNotesViewBody> {
               widget.note.save();
               BlocProvider.of<NotesCubit>(context).fetchNotes();
               Navigator.of(context).pop();
+               HelperFunctions()
+                  .scaffoldMessangerMessage(context, 'note edited succefully');
             },
           ),
           const SizedBox(
